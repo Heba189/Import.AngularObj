@@ -1,0 +1,120 @@
+<div class="form-container">
+  <form [formGroup]="schoolForm">
+    <h4>Dynamic Form</h4>
+    <div class="form-body p-4 bg-gray">
+      <h6>Init Form</h6>
+      <div class="form-control">
+        schoolName *
+        <input
+          type="text"
+          formControlName="schoolName"
+          placeholder="Your Username"
+        />
+      </div>
+
+      <div class="form-control">
+        Total Student Count *
+        <input
+          type="text"
+          formControlName="totalStudentsCount"
+          placeholder="total Students Count"
+        />
+      </div>
+
+      <!--start classes container-->
+      <div
+        *ngIf="getclassRoom().controls.length"
+        class="class-rooms p-5 my-3"
+        formArrayName="classRooms"
+      >
+        <ng-container
+          *ngFor="
+            let classRoom of getclassRoom().controls;
+            let classRoomIndex = index
+          "
+        >
+          <div [formGroupName]="classRoomIndex" class="classRoom">
+            <h6>classRoom Form</h6>
+            <div class="form-control">
+              Students Count
+              <input
+                formControlName="studentsCount"
+                type="text"
+                placeholder="Total Students Count"
+              />
+            </div>
+            <div class="form-control">
+              class room number
+              <input
+                formControlName="classRoomNumber"
+                type="text"
+                placeholder="class room number"
+              />
+            </div>
+
+            <!--start subject-->
+            <div
+              formArrayName="subjects"
+              class="class-room-subject my-2 p-5 bg-dark"
+            >
+              <h6>Subject Form</h6>
+              <ng-container
+                *ngFor="
+                  let subject of getSubject(classRoomIndex).controls;
+                  let subjectIndex = index
+                "
+              >
+                <div class="" [formGroupName]="subjectIndex">
+                  <div class="form-control">
+                    subjectname
+                    <input
+                      formControlName="subjectname"
+                      type="text"
+                      placeholder="Total Students Count"
+                    />
+                  </div>
+                  <div class="form-control">
+                    studentscount
+                    <input
+                      formControlName="studentscount"
+                      type="text"
+                      placeholder="class room number"
+                    />
+                  </div>
+                  <button
+                    (click)="removeSubject(classRoomIndex, subjectIndex)"
+                    type="button"
+                    class="btn-danger btn my-2"
+                  >
+                    Delete Subject
+                  </button>
+                </div>
+              </ng-container>
+            </div>
+            <!--end subject-->
+            <button
+              (click)="addsubject(classRoomIndex)"
+              class="btn btn-success m-2"
+              type="button"
+            >
+              Add Subject
+            </button>
+            <button
+              (click)="removeClassRoom(classRoomIndex)"
+              type="button"
+              class="btn btn-danger m-2"
+            >
+              Delete Classroom
+            </button>
+          </div>
+        </ng-container>
+      </div>
+      <!--end classes container-->
+      <button (click)="addClassRoom()" class="btn btn-info" type="button">
+        Add Class Room
+      </button>
+      <br />
+      {{ schoolForm.value | json }}
+    </div>
+  </form>
+</div>

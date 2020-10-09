@@ -1,0 +1,30 @@
+<div class="form-container">
+  <form #templateForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-body" ngModelGroup="data">
+      <div class="form-control">
+        School Name *
+        <input
+          type="text"
+          ngModel
+          placeholder="School Name"
+          name="SchoolName"
+          [(ngModel)]="schoolName"
+        />
+      </div>
+      <div class="form-control">
+        Total Student Count *
+        <input
+          type="text"
+          ngModel
+          #countStd="ngModel"
+          placeholder="Total Student Count"
+          name="TotalStudentCount"
+        />
+        {{ countStd.value }}
+      </div>
+      <hr />
+      {{ templateForm.value | json }}
+    </div>
+    <button>Submit</button>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+.form-control {
+  position: relative;
+}
+.loading::after {
+  content: "";
+  position: absolute;
+  right: 60%;
+  top: 35px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #dbdbdb;
+  border-radius: 50%;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  animation: 0.5s linear infinite spin;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

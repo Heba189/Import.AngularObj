@@ -1,0 +1,76 @@
+<div class="form-container">
+  <form [formGroup]="myForm">
+    <h4>Async Validator</h4>
+    <div class="form-body">
+      <div [ngClass]="{ loading: username.pending }" class="py-5 mb-5 form-control">
+        username *
+        <input
+          type="text"
+          formControlName="username"
+          placeholder="Enter Your Name"
+          id=""
+        />
+        {{ username.errors | json }}
+       
+
+        <ng-container *ngIf="username.dirty">
+          <span
+            *ngIf="username.hasError('required')"
+            class="alert alert-danger form-message"
+            >username is required</span
+          >
+          <span
+            *ngIf="username.hasError('usernameExist')"
+            class="alert alert-danger form-message"
+            >username is usernameExist</span
+          >
+
+          <span
+            *ngIf="username.valid && !username.pending"
+            class="alert alert-info form-message"
+            >true</span
+          >
+        </ng-container>
+      </div>
+
+      <!--lazy check-->
+
+      <div
+        [ngClass]="{ loading: lazyUsename.pending }"
+        class="py-5 form-control"
+      >
+        lazyUsename *
+        <input
+          type="text"
+          formControlName="lazyUsename"
+          placeholder="Enter Your Name"
+          id=""
+        />
+        {{ lazyUsename.errors | json }}
+      
+        <hr />
+
+        <ng-container *ngIf="lazyUsename.dirty">
+          <span
+            *ngIf="lazyUsename.hasError('required')"
+            class="alert alert-danger form-message"
+          >
+            lazyUsename is required</span
+          >
+          <span
+            *ngIf="lazyUsename.hasError('usernameExist')"
+            class="alert alert-danger form-message"
+          >
+            lazyUsename is lazyUsenameExist</span
+          >
+
+          <span
+            *ngIf="lazyUsename.valid && !lazyUsename.pending"
+            class="alert alert-info form-message"
+            >true</span
+          >
+        </ng-container>
+      </div>
+    </div>
+  </form>
+</div>

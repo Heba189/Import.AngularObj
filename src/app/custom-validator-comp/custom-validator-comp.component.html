@@ -1,0 +1,38 @@
+<div class="container py-5">
+  <form [formGroup]="myForm">
+    <label>
+      First Name :
+      <input formControlName="firstName" type="text" name="" id="" />
+    </label>
+    <br />
+    <ng-container
+      *ngIf="firstName.invalid && firstName.touched && firstName.dirty"
+    >
+      <span *ngIf="firstName.errors.required">This Field is required</span>
+      <span *ngIf="firstName.errors.invalidName"
+        >This Field cant include number</span
+      >
+    </ng-container>
+
+    <br />
+    <hr />
+    <label>
+      Last Name :
+      <input formControlName="lastName" type="text" name="" id="" />
+    </label>
+
+    <hr />
+    <label>
+      password :
+      <input formControlName="password" type="text" name="" id="" />
+      <span>{{ password.errors | json }}</span>
+    </label>
+
+    <hr />
+    <label>
+      confirmPassword :
+      <input formControlName="confirmPassword" type="text" name="" id="" />
+      <span>{{ confirmPassword.errors | json }}</span>
+    </label>
+  </form>
+</div>
