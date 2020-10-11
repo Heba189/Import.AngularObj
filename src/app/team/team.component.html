@@ -1,0 +1,51 @@
+<div class="container p-5">
+  <p>team works!</p>
+  url :{{ activatedRoute.url | async }}
+
+  <hr />
+  params :{{ activatedRoute.params | async | json }}
+
+  <hr />
+  id :{{ activatedRoute.snapshot.paramMap.get("id") | json }}
+  <hr />
+  has id :{{ activatedRoute.snapshot.paramMap.has("id") | json }}
+  <hr />
+  Key :{{ activatedRoute.snapshot.paramMap.keys | json }}
+  <hr />
+  QParams : {{ activatedRoute.queryParams | async | json }}
+
+  <hr />
+
+  Fragment :{{ activatedRoute.fragment | async | json }}
+
+  <br /><br />
+  <hr />
+  <section id="myTeamHere">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsa illum
+    saepe corrupti rem dolorem aliquam molestias placeat minima blanditiis
+    cupiditate quod, inventore dicta tempore quis, magni pariatur adipisci
+    beatae.
+  </section>
+
+  <button class="btn btn-info" (click)="reactive()">Reactive</button>
+
+  <div class="d-flex p-2">
+    <button
+      class="btn btn-success"
+      [routerLink]="['add']"
+      routerLinkActive="active-link"
+    >
+      Add
+    </button>
+    <button
+      class="btn btn-warning"
+      [routerLink]="['edit']"
+      routerLinkActive="active-link"
+    >
+      edit
+    </button>
+  </div>
+</div>
+
+<hr />
+<router-outlet></router-outlet>

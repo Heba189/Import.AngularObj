@@ -1,0 +1,12 @@
+.active-link {
+  background-color: cornflowerblue;
+  color: aliceblue;
+  font-size: large;
+  border: none !important;
+}
+.active-link:focus {
+  background-color: cornflowerblue;
+  color: aliceblue;
+  font-size: large;
+  border: none !important;
+}

@@ -15,8 +15,21 @@ import { AsyncValidatorCompComponent } from "./async-validator-comp/async-valida
 import { DynamicFormCompComponent } from "./dynamic-form-comp/dynamic-form-comp.component";
 import { TemplateDrivenFormCompComponent } from "./template-driven-form-comp/template-driven-form-comp.component";
 import { from } from "rxjs";
+
 import { SharedModule } from "@app/shared.module";
 import { CoreModule } from "@app/core.module";
+import { RouterModule, Routes } from "@angular/router";
+import { TeamComponent } from "./team/team.component";
+import { NotfoundComponent } from "./notfound/notfound.component";
+import { SelectedTeamComponent } from './selected-team/selected-team.component';
+import { AddTeamComponent } from './add-team/add-team.component';
+
+import { EditTeamComponent } from './edit-team/edit-team.component';
+
+// const appRoutes: Routes = [
+//   { path: "reactive", component: ReactiveFormsComponent },
+//   { path: "post", component: PostsComponent },
+// ];
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +42,12 @@ import { CoreModule } from "@app/core.module";
     AsyncValidatorCompComponent,
     DynamicFormCompComponent,
     TemplateDrivenFormCompComponent,
+    TeamComponent,
+    NotfoundComponent,
+    SelectedTeamComponent,
+    AddTeamComponent,
+
+    EditTeamComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +56,8 @@ import { CoreModule } from "@app/core.module";
     FormsModule,
     HttpClientModule,
     SharedModule,
-    CoreModule,
+    CoreModule.forRoot(),
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
