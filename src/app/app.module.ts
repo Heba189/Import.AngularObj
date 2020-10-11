@@ -25,6 +25,15 @@ import { SelectedTeamComponent } from './selected-team/selected-team.component';
 import { AddTeamComponent } from './add-team/add-team.component';
 
 import { EditTeamComponent } from './edit-team/edit-team.component';
+import {MatButtonModule} from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { HomeComponent } from './home/home.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { HomeAllComponent } from './home-all/home-all.component';
+import { ProductsidebarComponent } from './productsidebar/productsidebar.component';
+import { MatListModule } from '@angular/material/list';
 
 // const appRoutes: Routes = [
 //   { path: "reactive", component: ReactiveFormsComponent },
@@ -48,6 +57,18 @@ import { EditTeamComponent } from './edit-team/edit-team.component';
     AddTeamComponent,
 
     EditTeamComponent,
+
+    ProductListComponent,
+
+    ProductDetailsComponent,
+
+    HomeComponent,
+
+    SidebarComponent,
+
+    HomeAllComponent,
+
+    ProductsidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,8 +77,11 @@ import { EditTeamComponent } from './edit-team/edit-team.component';
     FormsModule,
     HttpClientModule,
     SharedModule,
+    MatButtonModule,
     CoreModule.forRoot(),
     RouterModule,
+    BrowserAnimationsModule,
+    MatListModule 
   ],
   providers: [],
   bootstrap: [AppComponent],

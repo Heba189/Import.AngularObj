@@ -1,0 +1,16 @@
+<div class="container p-3 bg-Color">
+    <button mat-raised-button routerLink="home" class="mx-1" color="primary">Home</button>
+ 
+ <button mat-raised-button routerLink="products"  class="mx-1" color="primary">Products</button>
+
+ <br>
+ <br><br>
+ <button mat-raised-button [routerLink]="[{outlets:{sideBar:['product-side-menu']}}]" color="accent">Toggle Products Sidebar</button>
+
+ 
+ <br>
+ <router-outlet></router-outlet>
+ <br>
+ <router-outlet name="sideBar"></router-outlet>
+  
+ </div>
